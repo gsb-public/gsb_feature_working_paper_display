@@ -28,13 +28,18 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
     'title' => 'title',
     'field_link_document' => 'field_link_document',
   );
-  $handler->display->display_options['row_options']['separator'] = '-';
+  $handler->display->display_options['row_options']['separator'] = '|';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -47,6 +52,8 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['fields']['field_link_document']['table'] = 'field_data_field_link_document';
   $handler->display->display_options['fields']['field_link_document']['field'] = 'field_link_document';
   $handler->display->display_options['fields']['field_link_document']['label'] = '';
+  $handler->display->display_options['fields']['field_link_document']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_link_document']['alter']['text'] = '<a href="[field_link_document-url]" alt="PDF">PDF</a>';
   $handler->display->display_options['fields']['field_link_document']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_link_document']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_link_document']['settings'] = array(
@@ -56,11 +63,54 @@ function gsb_feature_working_paper_display_views_default_views() {
       ),
     ),
   );
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Field: Content: Author */
+  $handler->display->display_options['fields']['field_author']['id'] = 'field_author';
+  $handler->display->display_options['fields']['field_author']['table'] = 'field_data_field_author';
+  $handler->display->display_options['fields']['field_author']['field'] = 'field_author';
+  $handler->display->display_options['fields']['field_author']['label'] = '';
+  $handler->display->display_options['fields']['field_author']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_author']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_author']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_author']['settings'] = array(
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
+  $handler->display->display_options['fields']['field_author']['delta_offset'] = '0';
+  /* Field: Field: Graduation Year */
+  $handler->display->display_options['fields']['field_year']['id'] = 'field_year';
+  $handler->display->display_options['fields']['field_year']['table'] = 'field_data_field_year';
+  $handler->display->display_options['fields']['field_year']['field'] = 'field_year';
+  $handler->display->display_options['fields']['field_year']['label'] = '';
+  $handler->display->display_options['fields']['field_year']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_year']['alter']['text'] = '[field_author], [field_year]';
+  $handler->display->display_options['fields']['field_year']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_year']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_year']['settings'] = array(
+    'format_type' => 'year',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_repeat_rule' => 'show',
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
+  /* Sort criterion: Field: Graduation Year (field_year) */
+  $handler->display->display_options['sorts']['field_year_value']['id'] = 'field_year_value';
+  $handler->display->display_options['sorts']['field_year_value']['table'] = 'field_data_field_year';
+  $handler->display->display_options['sorts']['field_year_value']['field'] = 'field_year_value';
+  $handler->display->display_options['sorts']['field_year_value']['order'] = 'DESC';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['sorts']['title']['order'] = 'DESC';
   /* Contextual filter: Content: Author Sunet Id Reference (field_author_sunet_id_reference) */
   $handler->display->display_options['arguments']['field_author_sunet_id_reference_target_id']['id'] = 'field_author_sunet_id_reference_target_id';
   $handler->display->display_options['arguments']['field_author_sunet_id_reference_target_id']['table'] = 'field_data_field_author_sunet_id_reference';
@@ -87,10 +137,13 @@ function gsb_feature_working_paper_display_views_default_views() {
 
   /* Display: EVA Field */
   $handler = $view->new_display('entity_view', 'EVA Field', 'case_listing_entity_view');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Working Papers';
   $handler->display->display_options['entity_type'] = 'node';
   $handler->display->display_options['bundles'] = array(
     0 => 'faculty',
   );
+  $handler->display->display_options['show_title'] = 1;
   $export['gsb_working_paper_listing'] = $view;
 
   return $export;
