@@ -139,6 +139,8 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler = $view->new_display('entity_view', 'EVA Field', 'case_listing_entity_view');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Working Papers';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'show-more-less show-more-less-num-3 show-more-less-min-5';
   $handler->display->display_options['entity_type'] = 'node';
   $handler->display->display_options['bundles'] = array(
     0 => 'faculty',
