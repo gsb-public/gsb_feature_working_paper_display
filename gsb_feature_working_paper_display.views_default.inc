@@ -220,26 +220,45 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'working_paper' => 'working_paper',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Has taxonomy terms (with depth) */
   $handler->display->display_options['filters']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
   $handler->display->display_options['filters']['term_node_tid_depth']['table'] = 'node';
   $handler->display->display_options['filters']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth']['group'] = 1;
   $handler->display->display_options['filters']['term_node_tid_depth']['exposed'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator_id'] = 'term_node_tid_depth_op';
-  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['label'] = 'Topic';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['label'] = 'Academic Area';
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator'] = 'term_node_tid_depth_op';
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['identifier'] = 'term_node_tid_depth';
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['multiple'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth']['type'] = 'select';
-  $handler->display->display_options['filters']['term_node_tid_depth']['vocabulary'] = 'business_insight_topic';
+  $handler->display->display_options['filters']['term_node_tid_depth']['vocabulary'] = 'academic_area';
   $handler->display->display_options['filters']['term_node_tid_depth']['error_message'] = FALSE;
   $handler->display->display_options['filters']['term_node_tid_depth']['depth'] = '10';
+  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['id'] = 'term_node_tid_depth_1';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['table'] = 'node';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['group'] = 1;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['operator_id'] = 'term_node_tid_depth_1_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['label'] = 'Additional Topics';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['operator'] = 'term_node_tid_depth_1_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['identifier'] = 'term_node_tid_depth_1';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['type'] = 'select';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['vocabulary'] = 'business_insight_topic';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['error_message'] = FALSE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['depth'] = '10';
   /* Filter criterion: Content: Search field (field_search_field) */
   $handler->display->display_options['filters']['field_search_field_value']['id'] = 'field_search_field_value';
   $handler->display->display_options['filters']['field_search_field_value']['table'] = 'field_data_field_search_field';
   $handler->display->display_options['filters']['field_search_field_value']['field'] = 'field_search_field_value';
   $handler->display->display_options['filters']['field_search_field_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_search_field_value']['group'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['operator_id'] = 'field_search_field_value_op';
   $handler->display->display_options['filters']['field_search_field_value']['expose']['operator'] = 'field_search_field_value_op';
