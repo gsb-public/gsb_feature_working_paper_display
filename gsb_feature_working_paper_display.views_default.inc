@@ -101,11 +101,6 @@ function gsb_feature_working_paper_display_views_default_views() {
       ),
     ),
   );
-  /* Sort criterion: Field: Graduation Year (field_year) */
-  $handler->display->display_options['sorts']['field_year_value']['id'] = 'field_year_value';
-  $handler->display->display_options['sorts']['field_year_value']['table'] = 'field_data_field_year';
-  $handler->display->display_options['sorts']['field_year_value']['field'] = 'field_year_value';
-  $handler->display->display_options['sorts']['field_year_value']['order'] = 'DESC';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -259,8 +254,42 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator_id'] = 'term_node_tid_depth_op';
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['label'] = 'Academic Area';
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator'] = 'term_node_tid_depth_op';
-  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['identifier'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['identifier'] = 'academic-area';
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    11 => 0,
+    151 => 0,
+    16 => 0,
+    21 => 0,
+    61 => 0,
+    56 => 0,
+    71 => 0,
+    66 => 0,
+    26 => 0,
+    31 => 0,
+    36 => 0,
+    41 => 0,
+    46 => 0,
+    51 => 0,
+    81 => 0,
+    86 => 0,
+    91 => 0,
+    96 => 0,
+    101 => 0,
+    106 => 0,
+    116 => 0,
+    121 => 0,
+    126 => 0,
+    131 => 0,
+    136 => 0,
+    141 => 0,
+    146 => 0,
+    156 => 0,
+    161 => 0,
+    166 => 0,
+  );
   $handler->display->display_options['filters']['term_node_tid_depth']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth']['type'] = 'select';
   $handler->display->display_options['filters']['term_node_tid_depth']['vocabulary'] = 'academic_area';
@@ -275,8 +304,42 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['operator_id'] = 'term_node_tid_depth_1_op';
   $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['label'] = 'Additional Topics';
   $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['operator'] = 'term_node_tid_depth_1_op';
-  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['identifier'] = 'term_node_tid_depth_1';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['identifier'] = 'topics';
   $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    11 => 0,
+    151 => 0,
+    16 => 0,
+    21 => 0,
+    61 => 0,
+    56 => 0,
+    71 => 0,
+    66 => 0,
+    26 => 0,
+    31 => 0,
+    36 => 0,
+    41 => 0,
+    46 => 0,
+    51 => 0,
+    81 => 0,
+    86 => 0,
+    91 => 0,
+    96 => 0,
+    101 => 0,
+    106 => 0,
+    116 => 0,
+    121 => 0,
+    126 => 0,
+    131 => 0,
+    136 => 0,
+    141 => 0,
+    146 => 0,
+    156 => 0,
+    161 => 0,
+    166 => 0,
+  );
   $handler->display->display_options['filters']['term_node_tid_depth_1']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth_1']['type'] = 'select';
   $handler->display->display_options['filters']['term_node_tid_depth_1']['vocabulary'] = 'business_insight_topic';
@@ -296,6 +359,8 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_dependent'] = 0;
+  $handler->display->display_options['pane_category']['name'] = 'Other';
+  $handler->display->display_options['pane_category']['weight'] = '0';
   $export['gsb_working_paper_listing'] = $view;
 
   return $export;
