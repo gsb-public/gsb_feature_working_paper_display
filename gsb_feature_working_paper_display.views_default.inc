@@ -101,11 +101,15 @@ function gsb_feature_working_paper_display_views_default_views() {
       ),
     ),
   );
+  /* Sort criterion: Field: Graduation Year (field_year) */
+  $handler->display->display_options['sorts']['field_year_value']['id'] = 'field_year_value';
+  $handler->display->display_options['sorts']['field_year_value']['table'] = 'field_data_field_year';
+  $handler->display->display_options['sorts']['field_year_value']['field'] = 'field_year_value';
+  $handler->display->display_options['sorts']['field_year_value']['order'] = 'DESC';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  $handler->display->display_options['sorts']['title']['order'] = 'DESC';
   /* Contextual filter: Content: Author Sunet Id Reference (field_author_sunet_id_reference) */
   $handler->display->display_options['arguments']['field_author_sunet_id_reference_target_id']['id'] = 'field_author_sunet_id_reference_target_id';
   $handler->display->display_options['arguments']['field_author_sunet_id_reference_target_id']['table'] = 'field_data_field_author_sunet_id_reference';
