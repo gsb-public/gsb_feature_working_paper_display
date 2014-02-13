@@ -85,7 +85,7 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['fields']['field_year']['field'] = 'field_year';
   $handler->display->display_options['fields']['field_year']['label'] = '';
   $handler->display->display_options['fields']['field_year']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_year']['alter']['text'] = '[field_author], [field_year]';
+  $handler->display->display_options['fields']['field_year']['alter']['text'] = '[field_author][field_year]';
   $handler->display->display_options['fields']['field_year']['element_type'] = 'span';
   $handler->display->display_options['fields']['field_year']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_year']['settings'] = array(
