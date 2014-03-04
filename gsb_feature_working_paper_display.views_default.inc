@@ -63,29 +63,30 @@ function gsb_feature_working_paper_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Content: Author */
-  $handler->display->display_options['fields']['field_author']['id'] = 'field_author';
-  $handler->display->display_options['fields']['field_author']['table'] = 'field_data_field_author';
-  $handler->display->display_options['fields']['field_author']['field'] = 'field_author';
-  $handler->display->display_options['fields']['field_author']['label'] = '';
-  $handler->display->display_options['fields']['field_author']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_author']['element_type'] = 'span';
-  $handler->display->display_options['fields']['field_author']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_author']['settings'] = array(
+  /* Field: Content: Authors */
+  $handler->display->display_options['fields']['field_authors']['id'] = 'field_authors';
+  $handler->display->display_options['fields']['field_authors']['table'] = 'field_data_field_authors';
+  $handler->display->display_options['fields']['field_authors']['field'] = 'field_authors';
+  $handler->display->display_options['fields']['field_authors']['label'] = '';
+  $handler->display->display_options['fields']['field_authors']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_authors']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_authors']['type'] = 'field_collection_fields';
+  $handler->display->display_options['fields']['field_authors']['settings'] = array(
+    'view_mode' => 'existing_node_teaser',
     'conditions' => array(
       0 => array(
         'condition' => '',
       ),
     ),
   );
-  $handler->display->display_options['fields']['field_author']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_authors']['delta_offset'] = '0';
   /* Field: Field: Graduation Year */
   $handler->display->display_options['fields']['field_year']['id'] = 'field_year';
   $handler->display->display_options['fields']['field_year']['table'] = 'field_data_field_year';
   $handler->display->display_options['fields']['field_year']['field'] = 'field_year';
   $handler->display->display_options['fields']['field_year']['label'] = '';
   $handler->display->display_options['fields']['field_year']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_year']['alter']['text'] = '[field_author][field_year]';
+  $handler->display->display_options['fields']['field_year']['alter']['text'] = '[field_authors][field_year]';
   $handler->display->display_options['fields']['field_year']['element_type'] = 'span';
   $handler->display->display_options['fields']['field_year']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_year']['settings'] = array(
