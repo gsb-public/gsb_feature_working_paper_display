@@ -368,7 +368,7 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['pane_category']['weight'] = '0';
 
   /* Display: EVA Field Form */
-  $handler = $view->new_display('entity_view', 'EVA Field Form', 'entity_view_1');
+  $handler = $view->new_display('entity_view', 'EVA Field Form', 'eva_field_form');
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -418,6 +418,10 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Messages */
+  $handler->display->display_options['header']['messages']['id'] = 'messages';
+  $handler->display->display_options['header']['messages']['table'] = 'views';
+  $handler->display->display_options['header']['messages']['field'] = 'messages';
   /* Header: GSB: Modal node add link */
   $handler->display->display_options['header']['gsb_node_modal_add_link']['id'] = 'gsb_node_modal_add_link';
   $handler->display->display_options['header']['gsb_node_modal_add_link']['table'] = 'gsb__global';
@@ -429,7 +433,14 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['relationships']['field_authors_value']['id'] = 'field_authors_value';
   $handler->display->display_options['relationships']['field_authors_value']['table'] = 'field_data_field_authors';
   $handler->display->display_options['relationships']['field_authors_value']['field'] = 'field_authors_value';
+  $handler->display->display_options['relationships']['field_authors_value']['label'] = 'Field Authors';
   $handler->display->display_options['relationships']['field_authors_value']['delta'] = '-1';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_person_fac_single_ref_target_id']['id'] = 'field_person_fac_single_ref_target_id';
+  $handler->display->display_options['relationships']['field_person_fac_single_ref_target_id']['table'] = 'field_data_field_person_fac_single_ref';
+  $handler->display->display_options['relationships']['field_person_fac_single_ref_target_id']['field'] = 'field_person_fac_single_ref_target_id';
+  $handler->display->display_options['relationships']['field_person_fac_single_ref_target_id']['relationship'] = 'field_authors_value';
+  $handler->display->display_options['relationships']['field_person_fac_single_ref_target_id']['label'] = 'Faculty';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -476,7 +487,27 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['fields']['edit_node_modal']['field'] = 'edit_node_modal';
   $handler->display->display_options['fields']['edit_node_modal']['label'] = '';
   $handler->display->display_options['fields']['edit_node_modal']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Sort criterion: Field: Graduation Year (field_year) */
+  $handler->display->display_options['sorts']['field_year_value']['id'] = 'field_year_value';
+  $handler->display->display_options['sorts']['field_year_value']['table'] = 'field_data_field_year';
+  $handler->display->display_options['sorts']['field_year_value']['field'] = 'field_year_value';
+  $handler->display->display_options['sorts']['field_year_value']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'field_person_fac_single_ref_target_id';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -493,52 +524,15 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'working_paper' => 'working_paper',
   );
-  /* Filter criterion: Field collection item: Profile Visibility (field_profile_visibility) */
-  $handler->display->display_options['filters']['field_profile_visibility_value']['id'] = 'field_profile_visibility_value';
-  $handler->display->display_options['filters']['field_profile_visibility_value']['table'] = 'field_data_field_profile_visibility';
-  $handler->display->display_options['filters']['field_profile_visibility_value']['field'] = 'field_profile_visibility_value';
-  $handler->display->display_options['filters']['field_profile_visibility_value']['relationship'] = 'field_authors_value';
-  $handler->display->display_options['filters']['field_profile_visibility_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_profile_visibility_value']['expose']['operator_id'] = 'field_profile_visibility_value_op';
-  $handler->display->display_options['filters']['field_profile_visibility_value']['expose']['label'] = 'Profile Visibility';
-  $handler->display->display_options['filters']['field_profile_visibility_value']['expose']['operator'] = 'field_profile_visibility_value_op';
-  $handler->display->display_options['filters']['field_profile_visibility_value']['expose']['identifier'] = 'field_profile_visibility_value';
-  $handler->display->display_options['filters']['field_profile_visibility_value']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    11 => 0,
-    151 => 0,
-    16 => 0,
-    21 => 0,
-    71 => 0,
-    61 => 0,
-    167 => 0,
-    56 => 0,
-    66 => 0,
-    31 => 0,
-    36 => 0,
-    41 => 0,
-    91 => 0,
-    146 => 0,
-    136 => 0,
-    26 => 0,
-    46 => 0,
-    51 => 0,
-    81 => 0,
-    86 => 0,
-    96 => 0,
-    101 => 0,
-    106 => 0,
-    116 => 0,
-    121 => 0,
-    126 => 0,
-    131 => 0,
-    141 => 0,
-    156 => 0,
-    161 => 0,
-    166 => 0,
-  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['entity_type'] = 'node';
+  $handler->display->display_options['bundles'] = array(
+    0 => 'faculty',
+  );
+  $handler->display->display_options['show_on'] = array(
+    'display' => FALSE,
+    'form' => 'form',
+  );
   $export['gsb_working_paper_listing'] = $view;
 
   return $export;

@@ -1,9 +1,10 @@
 name = GSB Feature Working Paper Display
 core = 7.x
 package = GSB
-version = 7.x-3.2
+version = 7.x-3.5
 project = gsb_feature_working_paper_display
 dependencies[] = better_exposed_filters
+dependencies[] = ctools
 dependencies[] = ds
 dependencies[] = eva
 dependencies[] = views
@@ -13,4 +14,3 @@ datestamp = 1390787178
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[views_view][] = gsb_working_paper_listing
-features_exclude[dependencies][ctools] = ctools
