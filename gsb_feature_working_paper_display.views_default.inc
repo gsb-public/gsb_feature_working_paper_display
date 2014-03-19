@@ -537,15 +537,15 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['fields']['edit_node_modal']['label'] = '';
   $handler->display->display_options['fields']['edit_node_modal']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Title */
-  $handler->display->display_options['sorts']['title']['id'] = 'title';
-  $handler->display->display_options['sorts']['title']['table'] = 'node';
-  $handler->display->display_options['sorts']['title']['field'] = 'title';
   /* Sort criterion: Field: Graduation Year (field_year) */
   $handler->display->display_options['sorts']['field_year_value']['id'] = 'field_year_value';
   $handler->display->display_options['sorts']['field_year_value']['table'] = 'field_data_field_year';
   $handler->display->display_options['sorts']['field_year_value']['field'] = 'field_year_value';
   $handler->display->display_options['sorts']['field_year_value']['order'] = 'DESC';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
