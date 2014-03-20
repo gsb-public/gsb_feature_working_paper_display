@@ -424,7 +424,7 @@ function gsb_feature_working_paper_display_views_default_views() {
     'field_profile_visibility' => 'field_profile_visibility',
     'edit_node_modal' => 'edit_node_modal',
   );
-  $handler->display->display_options['style_options']['default'] = 'title';
+  $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
     'title' => array(
       'sortable' => 1,
