@@ -90,6 +90,16 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['sorts']['field_year_of_publication_value']['table'] = 'field_data_field_year_of_publication';
   $handler->display->display_options['sorts']['field_year_of_publication_value']['field'] = 'field_year_of_publication_value';
   $handler->display->display_options['sorts']['field_year_of_publication_value']['order'] = 'DESC';
+  /* Sort criterion: Content: Month (field_month) */
+  $handler->display->display_options['sorts']['field_month_value']['id'] = 'field_month_value';
+  $handler->display->display_options['sorts']['field_month_value']['table'] = 'field_data_field_month';
+  $handler->display->display_options['sorts']['field_month_value']['field'] = 'field_month_value';
+  $handler->display->display_options['sorts']['field_month_value']['order'] = 'DESC';
+  /* Sort criterion: Content: Day (field_pub_date_day) */
+  $handler->display->display_options['sorts']['field_pub_date_day_value']['id'] = 'field_pub_date_day_value';
+  $handler->display->display_options['sorts']['field_pub_date_day_value']['table'] = 'field_data_field_pub_date_day';
+  $handler->display->display_options['sorts']['field_pub_date_day_value']['field'] = 'field_pub_date_day_value';
+  $handler->display->display_options['sorts']['field_pub_date_day_value']['order'] = 'DESC';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -153,13 +163,47 @@ function gsb_feature_working_paper_display_views_default_views() {
     ),
   );
   $handler->display->display_options['fields']['field_authors']['delta_offset'] = '0';
+  /* Field: Content: Month */
+  $handler->display->display_options['fields']['field_month']['id'] = 'field_month';
+  $handler->display->display_options['fields']['field_month']['table'] = 'field_data_field_month';
+  $handler->display->display_options['fields']['field_month']['field'] = 'field_month';
+  $handler->display->display_options['fields']['field_month']['label'] = '';
+  $handler->display->display_options['fields']['field_month']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_month']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_month']['alter']['text'] = ', [field_month] ';
+  $handler->display->display_options['fields']['field_month']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_month']['settings'] = array(
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
+  /* Field: Content: Day */
+  $handler->display->display_options['fields']['field_pub_date_day']['id'] = 'field_pub_date_day';
+  $handler->display->display_options['fields']['field_pub_date_day']['table'] = 'field_data_field_pub_date_day';
+  $handler->display->display_options['fields']['field_pub_date_day']['field'] = 'field_pub_date_day';
+  $handler->display->display_options['fields']['field_pub_date_day']['label'] = '';
+  $handler->display->display_options['fields']['field_pub_date_day']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_pub_date_day']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_pub_date_day']['alter']['text'] = ' [field_pub_date_day]';
+  $handler->display->display_options['fields']['field_pub_date_day']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_pub_date_day']['settings'] = array(
+    'thousand_separator' => '',
+    'prefix_suffix' => 1,
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
   /* Field: Content: Year */
   $handler->display->display_options['fields']['field_year_of_publication']['id'] = 'field_year_of_publication';
   $handler->display->display_options['fields']['field_year_of_publication']['table'] = 'field_data_field_year_of_publication';
   $handler->display->display_options['fields']['field_year_of_publication']['field'] = 'field_year_of_publication';
   $handler->display->display_options['fields']['field_year_of_publication']['label'] = '';
   $handler->display->display_options['fields']['field_year_of_publication']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_year_of_publication']['alter']['text'] = '[field_authors][field_year_of_publication]';
+  $handler->display->display_options['fields']['field_year_of_publication']['alter']['text'] = '[field_authors][field_month][field_pub_date_day][field_year_of_publication]';
   $handler->display->display_options['fields']['field_year_of_publication']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_year_of_publication']['settings'] = array(
     'format_type' => 'year',
