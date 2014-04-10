@@ -476,6 +476,11 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_dependent'] = 0;
+  /* Filter criterion: Content: Authors (field_authors) */
+  $handler->display->display_options['filters']['field_authors_value']['id'] = 'field_authors_value';
+  $handler->display->display_options['filters']['field_authors_value']['table'] = 'field_data_field_authors';
+  $handler->display->display_options['filters']['field_authors_value']['field'] = 'field_authors_value';
+  $handler->display->display_options['filters']['field_authors_value']['operator'] = 'not empty';
   $handler->display->display_options['pane_category']['name'] = 'Other';
   $handler->display->display_options['pane_category']['weight'] = '0';
 
