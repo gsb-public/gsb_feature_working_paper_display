@@ -658,10 +658,7 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['bundles'] = array(
     0 => 'faculty',
   );
-  $handler->display->display_options['show_on'] = array(
-    'display' => FALSE,
-    'form' => 'form',
-  );
+  $handler->display->display_options['show_on'] = 'form';
   $export['gsb_working_paper_listing'] = $view;
 
   return $export;
