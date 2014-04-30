@@ -245,7 +245,7 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'working_paper' => 'working_paper',
   );
-  /* Filter criterion: Field: Profile Visibility (field_profile_visibility) */
+  /* Filter criterion: Field: Display on Profile (field_profile_visibility) */
   $handler->display->display_options['filters']['field_profile_visibility_value']['id'] = 'field_profile_visibility_value';
   $handler->display->display_options['filters']['field_profile_visibility_value']['table'] = 'field_data_field_profile_visibility';
   $handler->display->display_options['filters']['field_profile_visibility_value']['field'] = 'field_profile_visibility_value';
@@ -344,8 +344,19 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['row_options']['view_mode'] = 'teaser_listing';
   $handler->display->display_options['row_options']['links'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Author &amp; Co-Authors (field_authors) */
+  $handler->display->display_options['relationships']['field_authors_value']['id'] = 'field_authors_value';
+  $handler->display->display_options['relationships']['field_authors_value']['table'] = 'field_data_field_authors';
+  $handler->display->display_options['relationships']['field_authors_value']['field'] = 'field_authors_value';
+  $handler->display->display_options['relationships']['field_authors_value']['delta'] = '-1';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['operator'] = 'OR';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'AND',
+  );
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -476,11 +487,20 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_dependent'] = 0;
-  /* Filter criterion: Content: Authors (field_authors) */
-  $handler->display->display_options['filters']['field_authors_value']['id'] = 'field_authors_value';
-  $handler->display->display_options['filters']['field_authors_value']['table'] = 'field_data_field_authors';
-  $handler->display->display_options['filters']['field_authors_value']['field'] = 'field_authors_value';
-  $handler->display->display_options['filters']['field_authors_value']['operator'] = 'not empty';
+  /* Filter criterion: Field: Related faculty member (field_person_fac_single_ref) */
+  $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['id'] = 'field_person_fac_single_ref_target_id';
+  $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['table'] = 'field_data_field_person_fac_single_ref';
+  $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['field'] = 'field_person_fac_single_ref_target_id';
+  $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['relationship'] = 'field_authors_value';
+  $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['group'] = 1;
+  /* Filter criterion: Field: First Name (field_first_name) */
+  $handler->display->display_options['filters']['field_first_name_value']['id'] = 'field_first_name_value';
+  $handler->display->display_options['filters']['field_first_name_value']['table'] = 'field_data_field_first_name';
+  $handler->display->display_options['filters']['field_first_name_value']['field'] = 'field_first_name_value';
+  $handler->display->display_options['filters']['field_first_name_value']['relationship'] = 'field_authors_value';
+  $handler->display->display_options['filters']['field_first_name_value']['operator'] = 'empty';
+  $handler->display->display_options['filters']['field_first_name_value']['group'] = 2;
   $handler->display->display_options['pane_category']['name'] = 'Other';
   $handler->display->display_options['pane_category']['weight'] = '0';
 
@@ -590,7 +610,7 @@ function gsb_feature_working_paper_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Field: Profile Visibility */
+  /* Field: Field: Display on Profile */
   $handler->display->display_options['fields']['field_profile_visibility']['id'] = 'field_profile_visibility';
   $handler->display->display_options['fields']['field_profile_visibility']['table'] = 'field_data_field_profile_visibility';
   $handler->display->display_options['fields']['field_profile_visibility']['field'] = 'field_profile_visibility';
