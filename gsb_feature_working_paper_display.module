@@ -5,3 +5,16 @@
  */
 
 include_once 'gsb_feature_working_paper_display.features.inc';
+
+/**
+ * Implements hook_field_views_data_alter().
+ */
+function gsb_feature_working_paper_display_field_views_data_alter(&$data, $field, $module) {
+  if ($field['field_name'] == 'field_has_pdf') {
+    foreach ($data as $table_name => $table_data) {
+      if (isset($table_data[$field['field_name']]['field'])) {
+        $data[$table_name][$field['field_name']]['field']['handler'] = 'gsb_feature_working_paper_display_handler_field_has_pdf';
+      }
+    }
+  }
+}
