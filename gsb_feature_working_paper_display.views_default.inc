@@ -37,7 +37,7 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
     'title' => 'title',
-    'field_link_document' => 'field_link_document',
+    'field_has_pdf' => 'field_has_pdf',
   );
   $handler->display->display_options['row_options']['separator'] = '|';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
