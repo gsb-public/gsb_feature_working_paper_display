@@ -147,6 +147,27 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Has PDF */
+  $handler->display->display_options['fields']['field_has_pdf']['id'] = 'field_has_pdf';
+  $handler->display->display_options['fields']['field_has_pdf']['table'] = 'field_data_field_has_pdf';
+  $handler->display->display_options['fields']['field_has_pdf']['field'] = 'field_has_pdf';
+  $handler->display->display_options['fields']['field_has_pdf']['label'] = '';
+  $handler->display->display_options['fields']['field_has_pdf']['alter']['text'] = '[nid]';
+  $handler->display->display_options['fields']['field_has_pdf']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_has_pdf']['settings'] = array(
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
   /* Field: Content: Author & Co-Authors */
   $handler->display->display_options['fields']['field_authors']['id'] = 'field_authors';
   $handler->display->display_options['fields']['field_authors']['table'] = 'field_data_field_authors';
