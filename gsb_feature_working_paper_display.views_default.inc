@@ -729,13 +729,6 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['row_options']['delta_fieldset']['delta_fields'] = array();
   $handler->display->display_options['row_options']['grouping_fieldset']['group_field'] = 'field_data_field_year_of_publication|field_year_of_publication_value';
   $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'views_content_pane';
-  /* Footer: Global: Text area */
-  $handler->display->display_options['footer']['area']['id'] = 'area';
-  $handler->display->display_options['footer']['area']['table'] = 'views';
-  $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['label'] = 'See All Working Papers';
-  $handler->display->display_options['footer']['area']['content'] = '<div class="see-all"><a href="/faculty-research/working-papers">See All Working Papers</a></div>';
-  $handler->display->display_options['footer']['area']['format'] = 'full_html';
   /* Relationship: Content: Author &amp; Co-Authors (field_authors) */
   $handler->display->display_options['relationships']['field_authors_value']['id'] = 'field_authors_value';
   $handler->display->display_options['relationships']['field_authors_value']['table'] = 'field_data_field_authors';
