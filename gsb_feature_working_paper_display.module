@@ -41,7 +41,7 @@ function gsb_feature_working_paper_display_form_views_content_views_panes_conten
       '#default_value' => !empty($conf['title_link']) ? $conf['title_link'] : '',
     );
     $form['override_title']['#weight'] = -105;
-    $form = gsb_misc_fixes_associative_insert($form, 'override_title', $item);
+    $form = gsb_misc_fixes_associative_insert($form, 'override_title_text', $item);
 
     $form['#validate'][] = 'gsb_feature_working_paper_display_form_validate';
     $form['#submit'][] = 'gsb_feature_working_paper_display_form_submit';
