@@ -1,7 +1,7 @@
 name = GSB Feature Working Paper Display
 core = 7.x
 package = GSB
-version = 7.x-5.02
+version = 7.x-5.03
 project = gsb_feature_working_paper_display
 dependencies[] = better_exposed_filters
 dependencies[] = ctools
@@ -16,4 +16,3 @@ features[features_api][] = api:2
 features[views_view][] = gsb_working_paper_listing
 features[views_view][] = working_paper_filters
 files[] = gsb_feature_working_paper_display_handler_field_has_pdf.inc
-mtime = 1422058851

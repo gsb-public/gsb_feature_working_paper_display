@@ -25,6 +25,15 @@ function gsb_feature_working_paper_display_field_views_data_alter(&$data, $field
 function gsb_feature_working_paper_display_form_views_content_views_panes_content_type_edit_form_alter(&$form, &$form_state) {
   // Alter 'Working Paper Filters' content pane settings form.
   if ($form_state['pane']->subtype == 'working_paper_filters-working_paper_filters_pane' && $form_state['view']->name == 'working_paper_filters' && $form_state['view']->current_display == 'working_paper_filters_pane') {
+    //Hide all display modes except compact and expanded
+
+    $view_modes = $form['view_mode']['#options'];
+    foreach($view_modes as $key=>$value) {
+      if($key !== 'compact' AND $key !== 'expanded'){
+        unset($form['view_mode']['#options'][$key]);
+      }
+    }
+
     $form['arguments']['nid']['#description'] = 'Separate Node IDs with commas and no spaces.';
     $form['exposed']['filter-field_person_fac_single_ref_target_id']['#description'] = 'Enter faculty node ID.';
     $form['exposed']['arguments'] = $form['arguments'];
