@@ -38,18 +38,21 @@ function gsb_feature_working_paper_display_form_views_content_views_panes_conten
     $form['exposed']['filter-field_person_fac_single_ref_target_id']['#description'] = 'Enter faculty node ID.';
     $form['exposed']['arguments'] = $form['arguments'];
     $form['arguments']['#access'] = FALSE;
-    $form['exposed']['filter-title']['#weight'] = -99;
-    $form['exposed']['arguments']['#weight'] = -98;
+    //$form['exposed']['filter-title']['#weight'] = -99;
+    $form['exposed']['arguments']['#weight'] = 90;
     $form['context']['#access'] = FALSE;
 
     $conf = $form_state['conf'];
     $item['title_link'] = array(
       '#title' => t('URL'),
       '#type' => 'textfield',
-      '#weight' => -100,
+      '#weight' => -99,
       '#default_value' => !empty($conf['title_link']) ? $conf['title_link'] : '',
     );
-    $form['override_title']['#weight'] = -105;
+    $form['override_title']['#weight'] = -99;
+    $form['items_per_page']['#weight'] = -99;
+    $form['view_mode']['#weight'] = -99;
+    $form['exposed']['#weight'] = -98;
     $form = gsb_misc_fixes_associative_insert($form, 'override_title_text', $item);
 
     $form['#validate'][] = 'gsb_feature_working_paper_display_form_validate';
