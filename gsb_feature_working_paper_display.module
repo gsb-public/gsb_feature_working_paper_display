@@ -38,6 +38,8 @@ function gsb_feature_working_paper_display_form_views_content_views_panes_conten
     $form['exposed']['filter-field_person_fac_single_ref_target_id']['#description'] = 'Enter faculty node ID.';
     $form['exposed']['arguments'] = $form['arguments'];
     $form['arguments']['#access'] = FALSE;
+    $form['comments']['#access'] = FALSE;
+    $form['links']['#access'] = FALSE;
     //$form['exposed']['filter-title']['#weight'] = -99;
     $form['exposed']['arguments']['#weight'] = 90;
     $form['context']['#access'] = FALSE;
