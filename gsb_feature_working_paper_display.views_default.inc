@@ -1273,14 +1273,8 @@ function gsb_feature_working_paper_display_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'ds';
+  $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'compact';
-  $handler->display->display_options['row_options']['alternating'] = 0;
-  $handler->display->display_options['row_options']['grouping'] = 0;
-  $handler->display->display_options['row_options']['advanced'] = 0;
-  $handler->display->display_options['row_options']['delta_fieldset']['delta_fields'] = array();
-  $handler->display->display_options['row_options']['grouping_fieldset']['group_field'] = 'field_data_field_year_of_publication|field_year_of_publication_value';
-  $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'compact';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['pane_title'] = 'Working Papers: Multiple Criteria';
   $handler->display->display_options['pane_category']['name'] = 'Customizable Content Lists';
